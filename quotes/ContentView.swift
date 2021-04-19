@@ -35,11 +35,10 @@ struct ContentView: View {
     private func loadNewQuote() {
         let url = URL(string: "https://api.quotable.io/random?tags=technology,famous-quotes")!
 
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else { return }
             guard let quote = try? JSONDecoder().decode(Quote.self, from: data) else { return }
             self.quote = quote
-
         }
 
         task.resume()

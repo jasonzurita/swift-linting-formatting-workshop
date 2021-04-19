@@ -14,7 +14,7 @@ import Foundation
     "authorSlug" : "henri-poincare",
     "author" : "Henri Poincaré"
  }
-*/
+ */
 
 struct Quote: Codable {
     let length: Int
