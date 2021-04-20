@@ -19,10 +19,10 @@ import Foundation
     "authorSlug" : "henri-poincare",
     "author" : "Henri Poincaré"
  }
-*/
+ */
 
 struct Quote: Codable {
-    let length:Int
+    let length: Int
     let id, content: String
     let tags: [String]
     let authorSlug, author: String
