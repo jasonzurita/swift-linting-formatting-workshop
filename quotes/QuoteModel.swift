@@ -5,6 +5,8 @@
 //
 import Foundation
 
+// curl https://api.quotable.io/random?tags=technology,famous-quotes
+
 /*
  Below is from: https://github.com/lukePeavey/quotable
  {
@@ -22,7 +24,7 @@ import Foundation
 */
 
 struct Quote: Codable {
-    let length:Int
+    let length: Int
     let id, content: String
     let tags: [String]
     let authorSlug, author: String

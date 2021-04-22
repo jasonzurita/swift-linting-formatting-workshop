@@ -10,11 +10,11 @@ struct ContentView: View {
     @State var quote: Quote?
     var body : some View {
         VStack {
-            if let q = quote {
+            if let quote = quote {
                 Spacer()
                 Spacer()
-                Text(q.content)
-                Text("— \(q.author)")
+                Text(quote.content)
+                Text("— \(quote.author)")
                 Spacer()
                 Button("New") {
                     loadNewQuote()
@@ -35,7 +35,7 @@ struct ContentView: View {
     private func loadNewQuote() {
         let url = URL(string: "https://api.quotable.io/random?tags=technology,famous-quotes")!
 
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) {(data, _, _) in
             guard let data = data else { return }
             guard let quote = try? JSONDecoder().decode(Quote.self, from: data) else { return }
             self.quote = quote
@@ -51,5 +51,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
